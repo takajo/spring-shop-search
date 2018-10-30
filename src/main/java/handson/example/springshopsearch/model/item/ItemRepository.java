@@ -13,6 +13,6 @@ public interface ItemRepository extends JpaRepository<Item, Long> {
 	List<Item> findByDescriptionContainsOrderByIdAsc(String keyword);
 
 	//両方で検索
-	List<Item> findByNameOrDescriptionContainsOrderByIdAsc(String keyword, String keyword2);
+	List<Item> findByNameOrDescriptionContainsOrderByIdAsc(String keyword, String keyword02);
 
 }
