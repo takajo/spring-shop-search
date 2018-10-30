@@ -5,7 +5,7 @@
 	<div th:replace="common/navbar.html::navbar"></div>
 	<div class="container">
 
-	<!-- 追加ボタン -->
+		<!-- 追加ボタン -->
 		<a href="/items/add">
 			<button class="btn btn-primary">商品登録</button>
 		</a> <br>
@@ -23,7 +23,7 @@
 				</tr>
 			</thead>
 			<tbody>
-			<!-- Thymeleafを使っている。コントローラで設定した値は
+				<!-- Thymeleafを使っている。コントローラで設定した値は
 			${キー名}の形でアクセスすることが可能
 			ループ字にオブジェクトの宣言をすることで${item.id}を*{id}と書いてアクセスできるようになっている -->
 				<tr th:each="item : ${items}" th:object="${item}">
@@ -31,6 +31,9 @@
 					<td th:text="*{name}"></td>
 					<td th:text="*{price} + ' Yen'"></td>
 					<td th:text="*{description}"></td>
+					<td><a th:href="@{/items/edit/{id}(id=*{id})}">
+							<button class="btn btn-outline-primary btn-small">編集</button>
+					</a></td>
 					<td><a th:href="@{/items/{id}(id=*{id})}">
 							<button class="btn btn-outline-primary btn-small">確認</button>
 					</a></td>

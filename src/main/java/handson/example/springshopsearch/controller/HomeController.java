@@ -45,7 +45,7 @@ public class HomeController {
 				list = itemRepository.findByDescriptionContainsOrderByIdAsc(keyword.get());
 				break;
 			case "both" :
-				list = itemRepository.findByNameOrDescriptionContainsOrderByIdAsc(keyword.get(), keyword.get());
+				list = itemRepository.findByNameContainsOrDescriptionContainsOrderByIdAsc(keyword.get(), keyword.get());
 				break;
 			}
 		} else {

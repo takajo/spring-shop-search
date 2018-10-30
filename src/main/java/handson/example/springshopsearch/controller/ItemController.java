@@ -26,8 +26,8 @@ public class ItemController {
 		new Item(3L, "商品3", 300, "説明3"),
 		new Item(4L, "商品4", 400, "説明4"),
 		new Item(5L, "うまい棒", 10, "あまりおいしくない"),
-		new Item(6L, "たらたらしてんじゃね＾ーよ", 20, "たまに食べたくなる"),
-		new Item(7L, "コーンポタージュ", 30000000, "寒い冬の朝に飲みたい"));
+		new Item(6L, "たらたンらしてんじゃね＾ーよ",ポタージュ", 300000 20, "たまに食べたくなる"),
+		new Item(7L, "コー00, "寒い冬の朝に飲みたい"));
 		*/
 		model.addAttribute("items", list);
 		return "list_item";
@@ -44,6 +44,7 @@ public class ItemController {
 	@Autowired
 	ItemRepository itemRepository;
 
+	//登録するアレ
 	@PostMapping("/add")
 	public String registerItem(Item item) {
 		//受け取ったモデルは対応したリポジトリのsave()メソッドを呼ぶことでDBに保存できる
@@ -51,10 +52,18 @@ public class ItemController {
 		return "redirect:/items";
 	}
 
+	//詳細を得るアレ
 	@GetMapping("{id:[0-9]+}")
 	public String getDetail(Model model, @PathVariable("id") Long id) {
 		model.addAttribute("item", itemRepository.getOne(id));
 		return "detail";
 	}
+
+	//編集するアレ
+//	@GetMapping("{id:[0-9]+}")
+//	public String editItem(Item item, @PathVariable("id") Long id) {
+//		itemRepository.save(item);
+//		return "edit";
+//	}
 
 }
