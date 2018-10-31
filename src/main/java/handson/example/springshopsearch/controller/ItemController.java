@@ -33,16 +33,16 @@ public class ItemController {
 		return "list_item";
 	}
 
+	//フォームから送信された値を受け取るためのメソッド定義
+	//引数にモデルを指定することで送信されたフォームのname属性をもとに自動的に値をセットしてくれる
+	@Autowired
+	ItemRepository itemRepository;
+
 	//追加処理（？）ビューを返すだけ
 	@GetMapping("add")
 	public String getForm() {
 		return "item_form";
 	}
-
-	//フォームから送信された値を受け取るためのメソッド定義
-	//引数にモデルを指定することで送信されたフォームのname属性をもとに自動的に値をセットしてくれる
-	@Autowired
-	ItemRepository itemRepository;
 
 	//登録するアレ
 	@PostMapping("/add")
@@ -59,11 +59,17 @@ public class ItemController {
 		return "detail";
 	}
 
+	//編集処理（？）ビューを返すだけ
+	@GetMapping("edit/{id:[0-9]+}")
+	public String getEdit() {
+		return "edit_form";
+	}
+
 	//編集するアレ
-//	@GetMapping("{id:[0-9]+}")
-//	public String editItem(Item item, @PathVariable("id") Long id) {
-//		itemRepository.save(item);
-//		return "edit";
-//	}
+	@PostMapping("/edit/{id:[0-9]+}")
+	public String editItem(Item item, @PathVariable("id") Long id) {
+		itemRepository.save(item);
+		return "redirect:/items";
+	}
 
 }
