@@ -26,8 +26,8 @@ public class ItemController {
 		new Item(3L, "商品3", 300, "説明3"),
 		new Item(4L, "商品4", 400, "説明4"),
 		new Item(5L, "うまい棒", 10, "あまりおいしくない"),
-		new Item(6L, "たらたンらしてんじゃね＾ーよ",ポタージュ", 300000 20, "たまに食べたくなる"),
-		new Item(7L, "コー00, "寒い冬の朝に飲みたい"));
+		new Item(6L, "たらたンらしてんじゃね＾ーよ", 20, "たまに食べたくなる"),
+		new Item(7L, "コーポタージュ", 300000, "寒い冬の朝に飲みたい"));
 		*/
 		model.addAttribute("items", list);
 		return "list_item";

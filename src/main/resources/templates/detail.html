@@ -19,6 +19,9 @@
 			<div class="row mt-5 mr-1 ml-1">
 				<p th:text="*{description}"></p>
 			</div>
+			<td><a th:href="@{/items/edit/{id}(id=*{id})}">
+					<button class="btn btn-outline-primary btn-small">編集</button>
+			</a></td>
 		</div>
 	</div>
 </body>
