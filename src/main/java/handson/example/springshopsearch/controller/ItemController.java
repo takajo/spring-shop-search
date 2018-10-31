@@ -61,13 +61,14 @@ public class ItemController {
 
 	//編集処理（？）ビューを返すだけ
 	@GetMapping("edit/{id:[0-9]+}")
-	public String getEdit() {
+	public String getEdit(Model model, @PathVariable("id") Long id) {
+		model.addAttribute("item", itemRepository.getOne(id));
 		return "edit_form";
 	}
 
 	//編集するアレ
 	@PostMapping("/edit/{id:[0-9]+}")
-	public String editItem(Item item, @PathVariable("id") Long id) {
+	public String editItem(Item item) {
 		itemRepository.save(item);
 		return "redirect:/items";
 	}
